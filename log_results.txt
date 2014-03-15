@@ -1,13 +1,36 @@
-# all teams:
+# all teams with 2 seasons of data:
+time passed:  33.5392651558
+accuracy (99% CI):  [ 0.65967181  0.73831538]
+correlation coefficient: 0.481886262546
+max, min (pred): 47.6875 , -27.765625
+max, min (actual): 58 , 1
+
+# only seed teams with 2 seasons of data:
+time passed:  4.68020105362
+accuracy (99% CI):  [ 0.62947967  0.70812325]
+correlation coefficient: 0.00768769375095
+max, min (pred): 1.57739499646e+15 , -1.28214937204e+16
+max, min (actual): 58 , 1
+
+
+# all teams, test on the tournament:
+# (takes about 20 seconds to run)
+accuracy (99% CI):  [ 0.66418685  0.74065744]
+correlation coefficient: 0.456181374908
+max, min (pred): 62.515625 , -47.9375
+max, min (actual): 58 , 1
+
+
+# only seed teams, test on the tournament:
+accuracy (99% CI):  [ 0.61920415  0.69567474]
+correlation coefficient: 0.0235433263323
+
+
+# fit with all teams:
 accuracy (99% CI):  [ 0.63269204  0.69397463]
 correlation coefficient: 0.31277280391
 
 
-# all teams, test on sead teams:
-accuracy (99% CI):  [ 0.63269204  0.69397463]
-correlation coefficient: 0.31277280391
-
-
-# only seed teams:
+# fit with only seed teams:
 accuracy (99% CI):  [ 0.50380315  0.56508574]
 correlation coefficient: 0.0671848554031
