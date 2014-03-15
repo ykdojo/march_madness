@@ -1,0 +1,13 @@
+# all teams:
+accuracy (99% CI):  [ 0.63269204  0.69397463]
+correlation coefficient: 0.31277280391
+
+
+# all teams, test on sead teams:
+accuracy (99% CI):  [ 0.63269204  0.69397463]
+correlation coefficient: 0.31277280391
+
+
+# only seed teams:
+accuracy (99% CI):  [ 0.50380315  0.56508574]
+correlation coefficient: 0.0671848554031
