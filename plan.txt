@@ -1,0 +1,12 @@
+This file describes my plan of the project.
+
+<1: Make a true/false prediction>
+<2: Make a percentage prediction>
+
+
+<1: Make a true/false prediction>
+-1. Eliminate non-tournament teams
+0. Split train/test <- insert changes
+1. Build matrix/vectors
+2. Find x_hat
+3. Test accuracy from 0
