@@ -9,6 +9,31 @@ max, min (actual): 58 , 1
 #======================#
 
 
+# all teams, 1 season, l2 regularization
+hyperparameter:  1e-05
+accuracy (99% CI):  [ 0.67638408  0.71461938]
+correlation coefficient: 0.468418062508
+max, min (pred): 30.8173102885 , -17.4129590603
+average std:  5.75793513284
+
+hyperparameter:  0.0001
+accuracy (99% CI):  [ 0.67638408  0.71461938]
+correlation coefficient: 0.468417871314
+max, min (pred): 30.8173102885 , -17.4129590603
+average std:  5.75787909378
+
+hyperparameter:  0.001
+accuracy (99% CI):  [ 0.67638408  0.71461938]
+correlation coefficient: 0.468416532459
+max, min (pred): 30.8173102885 , -17.4129590603
+average std:  5.75731877644
+
+hyperparameter:  0.01
+accuracy (99% CI):  [ 0.67638408  0.71461938]
+correlation coefficient: 0.468406257459
+max, min (pred): 30.8173102885 , -17.4129590603
+average std:  5.75172292365
+
 
 # all teams with 1.5 seasons of data:
 accuracy (99% CI):  [ 0.64594811  0.72459169]
