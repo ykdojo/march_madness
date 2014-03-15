@@ -10,6 +10,42 @@ max, min (actual): 58 , 1
 
 
 # all teams, 1 season, l2 regularization
+hyperparameter:  0
+accuracy (99% CI):  [ 0.66418685  0.74065744]
+correlation coefficient: 0.456181374908
+max, min (pred): 62.515625 , -47.9375
+average std:  1.35054261064e+15
+scores_length (actual, pred) 1156 , 1156
+===============
+hyperparameter:  1e-12
+accuracy (99% CI):  [ 0.65726644  0.73373702]
+correlation coefficient: 0.468418104994
+max, min (pred): 30.817340342 , -17.4129734984
+average std:  5.75801209289
+scores_length (actual, pred) 1156 , 1156
+===============
+hyperparameter:  1e-09
+accuracy (99% CI):  [ 0.65726644  0.73373702]
+correlation coefficient: 0.46841810499
+max, min (pred): 30.817340339 , -17.4129734969
+average std:  5.75794135894
+scores_length (actual, pred) 1156 , 1156
+===============
+hyperparameter:  1e-06
+accuracy (99% CI):  [ 0.65726644  0.73373702]
+correlation coefficient: 0.468418100745
+max, min (pred): 30.8173373367 , -17.4129720546
+average std:  5.75794073682
+scores_length (actual, pred) 1156 , 1156
+===============
+hyperparameter:  0.001
+accuracy (99% CI):  [ 0.65726644  0.73373702]
+correlation coefficient: 0.468413856188
+max, min (pred): 30.8143353615 , -17.4115298304
+average std:  5.75731877644
+scores_length (actual, pred) 1156 , 1156
+===============
+
 
 
 # all teams with 1.5 seasons of data:
