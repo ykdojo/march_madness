@@ -1,7 +1,7 @@
 Title: Predicting the Outcome of College Basketball Tournament with Least-Square Network Model
 
 0. Abstract
-Ranking sports teams and predicting their games' outcome is often said to be difficult.  In this paper, we examine a simple least square network model to rank teams in the American college basketball league, and attempt to predict the final tournament's outcome.  By testing on the past 18 tournaments, we find that our model accurately predicts the outcome of a game in the final tournament with 70(+-4)% accuracy.  We first trains the model using a simple least square model, and then train the same model with l2-regularization, which stabilizes our predicted outcome of a new game.
+Ranking sports teams and predicting their games' outcome is often said to be difficult.  In this paper, we examine a simple least square network model to rank teams in the American college basketball league, and attempt to predict the final tournament's outcome.  By testing on the past 18 tournaments, we find that our model accurately predicts the outcome of a game in the final tournament with 70(+-4)% (TODO: format this) accuracy.  We first trains the model using a simple least square model, and then train the same model with l2-regularization, which stabilizes our predicted outcome of a new game.
 
 1. Introduction
 1.1. Background information (description of data)
@@ -23,6 +23,12 @@ We achieved roughly 70(+-4)% accuracy for predicting the past 18 tournaments' ou
 
 3.2. Regularization (irregular behavior in the results)
 We noticed that differences between our potential estimates are sometimes unusually high or low (for instance, in the order of 10^9).  One can see this effect easily from the average standard deviation of potential estimates for each year <TODO TABLE: show the standard deviation>.  As the potential differences are used as the predicted score difference of a game, this is clearly an irregular result.  Also, as we examined the plot of predicted score differences against actual scores, we realized that the predictions can be unstable particularly when the actual score differences are small (when the games are "close"). 
+
+To prevent these unusual behaviors and also to stabilize the predictions, we utilized l2-regularization.  The model is described in (TODO: link this) 2.3. L2-regularization.  As expected, this model yielded more stable predictions as shown in the figure (TODO).  This was also clear when we compared the correlation coefficients between actual score differences and predicted score differences (it improved from 0.456 to 0.468.  However, it did not change the predictive accuracy significantly.
+Interestingly, ranging the regularization parameter from 10^(-9) (TODO: format this) to 0.001 hardly changed the results as can be seen from the figure (TODO link).
+
+
+
 
 4. Conclusion
 4.1. Summary
