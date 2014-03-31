@@ -1,0 +1,21 @@
+0. Abstract
+
+
+1. Introduction
+1.1. Background information (description of data)
+1.2. Objective (predictive accuracy)
+
+2. Model
+2.1. Model construction
+2.1.1. Traning the model
+2.1.2. Testing the accuracy
+2.2. Confidence interval
+2.3. L2-regularization
+
+3. Results
+3.1. Predictive accuracy
+3.2. Regularization (irregular behavior in the results)
+
+4. Conclusion
+4.1. Summary
+4.2. Further considerations

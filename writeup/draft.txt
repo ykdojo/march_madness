@@ -1,0 +1,28 @@
+Title: Predicting the Outcome of College Basketball Tournament with Least-Square Network Model
+
+0. Abstract
+Ranking sports teams and predicting their games' outcome is often said to be difficult.  In this paper, we examine a simple least square network model to rank teams in the American college basketball league, and attempt to predict the final tournament's outcome.  By testing on the past 18 tournaments, we find that our model accurately predicts the outcome of a game in the final tournament with 70(+-4)% accuracy.  We first trains the model using a simple least square model, and then train the same model with l2-regularization, which stabilizes our predicted outcome of a new game.
+
+1. Introduction
+1.1. Background information (description of data)
+The biggest tournament in the American college basketball league is NCAA Basketball, which is commonly referred to as "March Madness."  It is a single-elimination tournament played by 67 teams, meaning there are 66 games' outcome to predict.  Roughly 3000 games are played amongst more than 300 teams in our data set every year during the regular season, which we are going to use for tranining our model.
+
+1.2. Objective (predictive accuracy)
+Our objective is to predite this year (2014)'s tournament's outcome.  And we aim to maximize the simple predictive accuracy of win/lose.  Therefore, we are going to use past years' tournament results as our test data set.  The tested accuracy of a model is defined as follows: <equation, predictive accuracy percentage for all the past tournament games>
+
+2. Model
+2.1. Model construction
+2.1.1. Traning the model
+2.1.2. Testing the accuracy
+2.2. Confidence interval
+2.3. L2-regularization
+
+3. Results
+3.1. Predictive accuracy
+We achieved roughly 70(+-4)% accuracy for predicting the past 18 tournaments' outcome (for win/lose prediction).  This is an out-of-sample result as we trained our model on the same seaosn's regular game results, which preceed the tournament.
+
+3.2. Regularization (irregular behavior in the results)
+
+4. Conclusion
+4.1. Summary
+4.2. Further considerations
