@@ -8,7 +8,7 @@ Ranking sports teams and predicting their games' outcome is often said to be dif
 The biggest tournament in the American college basketball league is NCAA Basketball, which is commonly referred to as "March Madness."  It is a single-elimination tournament played by 67 teams, meaning there are 66 games' outcome to predict.  Roughly 3000 games are played amongst more than 300 teams in our data set every year during the regular season, which we are going to use for tranining our model.
 
 1.2. Objective (predictive accuracy)
-Our objective is to predite this year (2014)'s tournament's outcome.  And we aim to maximize the simple predictive accuracy of win/lose.  Therefore, we are going to use past years' tournament results as our test data set.  The tested accuracy of a model is defined as follows: <equation, predictive accuracy percentage for all the past tournament games>
+Our objective is to predite this year (2014)'s tournament's outcome.  And we aim to maximize the simple predictive accuracy of win/lose.  Therefore, we are going to use past years' tournament results as our test data set.  The tested accuracy of a model is defined as follows: <TODO: equation, predictive accuracy percentage for all the past tournament games>
 
 2. Model
 2.1. Model construction
@@ -22,6 +22,7 @@ Our objective is to predite this year (2014)'s tournament's outcome.  And we aim
 We achieved roughly 70(+-4)% accuracy for predicting the past 18 tournaments' outcome (for win/lose prediction).  This is an out-of-sample result as we trained our model on the same seaosn's regular game results, which preceed the tournament.
 
 3.2. Regularization (irregular behavior in the results)
+We noticed that differences between our potential estimates are sometimes unusually high or low (for instance, in the order of 10^9).  One can see this effect easily from the average standard deviation of potential estimates for each year <TODO TABLE: show the standard deviation>.  As the potential differences are used as the predicted score difference of a game, this is clearly an irregular result.  Also, as we examined the plot of predicted score differences against actual scores, we realized that the predictions can be unstable particularly when the actual score differences are small (when the games are "close"). 
 
 4. Conclusion
 4.1. Summary
