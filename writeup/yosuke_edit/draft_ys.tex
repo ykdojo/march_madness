@@ -79,10 +79,25 @@ where $\hat{x}_k$ is the `potential' for a team $k$. These differences represent
 \subsection{Predictive Accuracy}
 We achieved roughly $70(\pm4)\%$ accuracy for predicting the past 18 tournaments' outcome (for win/lose prediction).  This is an out-of-sample result as we trained our model on the same seaosn's regular game results, which preceed the tournament.
 \subsection{Regularization (Irregular Behaviour in the Results)}
-We noticed that differences between our potential estimates are sometimes unusually high or low (for instance, in the order of $10^9$).  One can see this effect easily from the average standard deviation of potential estimates for each year.
-\begin{verbatim}
-<TODO TABLE: show the standard deviation>	
-\end{verbatim} As the potential differences are used as the predicted score difference of a game, this is clearly an irregular result.  Also, as we examined the plot of predicted score differences against actual scores, we realized that the predictions can be unstable particularly when the actual score differences are small (when the games are ``close''). 
+We noticed that differences between our potential estimates are sometimes unusually high or low (for instance, in the order of $10^9$).  One can see this effect easily from the average standard deviation of potential estimates for each year (Table ~ \ref{table:std}).
+
+\begin{table}
+\begin{center}
+  \begin{tabular}{ | l | c | r | }
+    \hline
+    Regularization parameter & Average standard deviation of potential estimates \\ \hline
+    0 (no regularization) & 1.351e+15 \\ \hline
+    $10^{-12}$ & 5.758\\ \hline
+    $10^{-9}$ & 5.758\\ \hline
+    $0.001$ & 5.757\\
+    \hline
+  \end{tabular}
+  \caption{Average standard deviation of potential estimates}
+  \label{table:std}
+\end{center}
+\end{table}
+
+As the potential differences are used as the predicted score difference of a game, this is clearly an irregular result.  Also, as we examined the plot of predicted score differences against actual scores, we realized that the predictions can be unstable particularly when the actual score differences are small (when the games are ``close''). 
 
 \begin{figure}[ht!]
     \centering

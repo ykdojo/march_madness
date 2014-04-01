@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.5.19)  31 MAR 2014 22:13
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.5.19)  1 APR 2014 12:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -211,22 +211,22 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 File: actual_vs_predict.png Graphic file (type png)
 
 <use actual_vs_predict.png>
-Package pdftex.def Info: actual_vs_predict.png used on input line 89.
+Package pdftex.def Info: actual_vs_predict.png used on input line 104.
 (pdftex.def)             Requested size: 398.33858pt x 206.63875pt.
 
-Overfull \hbox (0.85359pt too wide) in paragraph at lines 89--90
+Overfull \hbox (0.85359pt too wide) in paragraph at lines 104--105
  [][] 
  []
 
-[2 <./actual_vs_predict.png>] [3] (./draft_ys.aux) ) 
+[2] [3 <./actual_vs_predict.png>] (./draft_ys.aux) ) 
 Here is how much of TeX's memory you used:
- 2309 strings out of 493488
- 32257 string characters out of 3141326
- 92590 words of memory out of 3000000
- 5598 multiletter control sequences out of 15000+200000
+ 2310 strings out of 493488
+ 32268 string characters out of 3141326
+ 92598 words of memory out of 3000000
+ 5599 multiletter control sequences out of 15000+200000
  12183 words of font info for 27 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 37i,8n,39p,627b,213s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,10n,39p,627b,221s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/te
 xmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2012/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2012/texmf-dist/fonts/t
@@ -239,7 +239,7 @@ c/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmsy7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/cour
 ier/ucrr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/utmb8a
 .pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on draft_ys.pdf (3 pages, 249287 bytes).
+Output written on draft_ys.pdf (3 pages, 247885 bytes).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
  43 compressed objects within 1 object stream
