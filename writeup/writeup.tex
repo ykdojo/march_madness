@@ -61,7 +61,7 @@ Ranking sports teams and predicting their games' outcome is often said to be a d
 \section{Introduction}
 \subsection{Background Information (Description of Data)}
 The biggest tournament in the American college basketball league is NCAA Basketball, which is commonly referred to as ``March Madness''.  It is a single-elimination tournament played by 67 teams, meaning there are 66 games' outcome to predict.  Roughly 3000 games are played amongst more than 300 teams in our data set every year during the regular season, which we are going to use for tranining our model.
-\subsection{Objective (Predictive Accuracy)}
+\subsection{Objective (Predictive Accuracy)} \label{sec:objective}
 Our objective is to predict this year's (the 2014 season) tournament's outcome and we aim to maximize the simple predictive accuracy of win/lose.  Therefore, we are going to use past years' tournament results as our test data set.  The tested accuracy of a model is defined as follows: 
 \begin{equation}
     \mbox{tested accuracy} = \frac{\mbox{number of correct predictions}}{\mbox{number of all predictions}}
@@ -103,8 +103,38 @@ As a simple example with 4 teams and 3 games (we assume that teams 1 and 3 are c
 \]
 In this case, solving for $\mathbf{x}$ would return the potentials for each of the 4 teams.
 \subsubsection{Testing the Prediction Accuracy}
+As mentioned in Section~\ref{sec:objective}. The accuracy of a model is tested as follows: 
+\begin{equation}
+    \mbox{tested accuracy} = \frac{\mbox{number of correct predictions}}{\mbox{number of all predictions}}
+\end{equation}
+The accuracy is tested on past years' tournament results, 18 years worth, after training the model on the same year's regular season results.  As there are 66 games in each tournament, resulting our test data to contain more than 1000 games to predict.
+
+
 \subsection{Confidence Interval Analysis}
-$\sim$
+To construct the confidence interval for the tested accuracy, we assume the following for convenience sake:
+\begin{equation}
+    Y_i \sim Bernouli(\pi)\;(i.i.d)
+\end{equation}
+where:
+\begin{equation}
+    \begin{split}
+        Y_i = 1 \mbox{ if the prediction for game i is correct} \\
+        Y_i = 0 \mbox{ if the prediction for game i is incorrect}
+    \end{split}
+\end{equation}
+
+Under this assumption, the calculated accuracy ($\bar{Y}$ = mean of $Y_i$'s) is approximately normally distributed when the sample size is large by Central Limit Theorem.
+\begin{equation}
+    \bar{Y} \sim N(E(Y_i), Var(Y_i)/n) = N(\pi, \pi(1-\pi)/n)
+\end{equation}
+\pi is unknown, 
+
+
+\newcommand\iid{i.i.d.}
+\newcommand\pN{\mathcal{N}}
+
+
+
 \subsection{Use of $\ell_2$-Regularization}\label{sec:l2}
 
 \section{Results}
