@@ -127,7 +127,25 @@ Under this assumption, the calculated accuracy ($\bar{Y}$ = mean of $Y_i$'s) is 
 \begin{equation}
     \bar{Y} \sim N(E(Y_i), Var(Y_i)/n) = N(\pi, \pi(1-\pi)/n)
 \end{equation}
-\pi is unknown, 
+
+$\pi$ is unknown, but the lower bound for $Var(\bar{Y})$ = $\pi(1-\pi)/n$ can be found as it is maximized when $\pi$ = 0.5.
+
+\begin{equation}
+    Var(\bar{Y}) = \pi(1-\pi)/n <= 0.5(1-0.5)/n = 1/4n
+\end{equation}
+
+We used this value to construct oru 99\% confidence interval.
+
+\begin{equation}
+    CI(\bar{Y}) = CI(\hat{\pi}) = \hat{\pi} +- z_{0.995} *  \frac{1}{2\sqrt{n}}
+\end{equation}
+
+It turned out, with our sample size (roughly 1200), we have:
+\begin{equation}
+    \mbox{one-sided length of confidence interval} = z_{0.995} *  \frac{1}{2\sqrt{n}} \leq 0.04
+\end{equation}
+Note that this does not depend on $\pi$ or $\hat{\pi}$ any more.  We chose to test our model on the past tournament results partly because we were able to obtain narrow enough confidence interval this way.
+
 
 
 \newcommand\iid{i.i.d.}

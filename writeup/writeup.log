@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.5.19)  8 APR 2014 15:46
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.5.19)  8 APR 2014 16:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -265,14 +265,14 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 File: actual_vs_predict.png Graphic file (type png)
 
 <use actual_vs_predict.png>
-Package pdftex.def Info: actual_vs_predict.png used on input line 165.
+Package pdftex.def Info: actual_vs_predict.png used on input line 184.
 (pdftex.def)             Requested size: 398.33858pt x 206.63875pt.
 
-Overfull \hbox (0.85359pt too wide) in paragraph at lines 165--166
+Overfull \hbox (0.85359pt too wide) in paragraph at lines 184--185
  [][] 
  []
 
-[3 <./actual_vs_predict.png>] [4] (./writeup.aux) ) 
+[3] [4 <./actual_vs_predict.png>] (./writeup.aux) ) 
 Here is how much of TeX's memory you used:
  2921 strings out of 493488
  39157 string characters out of 3141326
@@ -295,7 +295,7 @@ fonts/cm/cmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmsy7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/courier/u
 crr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
 </usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on writeup.pdf (4 pages, 274455 bytes).
+Output written on writeup.pdf (4 pages, 277780 bytes).
 PDF statistics:
  73 PDF objects out of 1000 (max. 8388607)
  51 compressed objects within 1 object stream
