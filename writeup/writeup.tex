@@ -8,15 +8,19 @@
 \usepackage{graphicx}
 %\documentstyle[nips13submit_09,times,art10]{article} % For LaTeX 2.09
 
-\newcommand{\E}{\mathrm{E}}
-
-\newcommand{\Var}{\mathrm{Var}}
-
+% \newcommand{\E}{\mathrm{E}}
+\newcommand{\E}{{\rm I\kern-.3em E}}
+% \newcommand{\Var}{\mathrm{Var}}
+% \newcommand{\Var}{{\rm I\kern-.3em Var}}
 \newcommand{\Cov}{\mathrm{Cov}}
-
+\newcommand{\iid}{i.i.d.}
+\newcommand{\norm}{\mathcal{N}}
+\newcommand{\Z}{\mathcal{Z}}
 
 \title{Predicting the Outcome of College Basketball Tournament Using a Least-Squares Network Model}
+% > \usepackage{amsmath}
 
+\DeclareMathOperator{\Var}{Var}
 
 \author{
 % David S.~Hippocampus\thanks{ Use footnote for providing further information
@@ -64,9 +68,9 @@ The biggest tournament in the American college basketball league is NCAA Basketb
 \subsection{Objective (Predictive Accuracy)} \label{sec:objective}
 Our objective is to predict this year's (the 2014 season) tournament's outcome and we aim to maximize the simple predictive accuracy of win/lose.  Therefore, we are going to use past years' tournament results as our test data set.  The tested accuracy of a model is defined as follows: 
 \begin{equation}
-    \mbox{tested accuracy} = \frac{\mbox{number of correct predictions}}{\mbox{number of all predictions}}
+	\mbox{tested accuracy} = \frac{\mbox{number of correct predictions}}{\mbox{number of all predictions}}
 \end{equation}
-
+\newpage
 \section{Model}
 \subsection{Model Construction}
 We define differences 
@@ -79,82 +83,87 @@ where $\hat{x}_k$ is the `potential' for a team $k$. These differences represent
 \]
 \subsubsection{Training the Model}
 In training the model, we take the data comprising of games played by 300 teams over the course of 18 seasons. Additionally, in each tournament, there were anywhere from 63 to 67 games. We encode this data as an incidence matrix 
-\[\mathbf{A} = \begin{bmatrix}
-  a_{t_1g_1} & a_{t_2g_1} & \cdots & a_{t_ng_1}\\
-  a_{t_1g_2} & a_{t_2g_2} & \cdots & a_{t_ng_2}\\
-  \vdots & \vdots & \ddots & \vdots\\
-  a_{t_1g_n} & a_{t_2g_n} & \cdots & a_{t_ng_n}
-\end{bmatrix} \]
-where each column represents one team in a given season and row represents a game played; since a game can only be played between two teams, each row contains exactly 2 non-zero elements. Further, for the two teams involved in some game $g_k$, we apply the convention that the `first' team $t_i$, that is the team whose column appears before the `second' tema $t_j$ such that $i<j$, obtains the value $a_{t_ig_k} = -1$ for the element while $a_{t_jg_k} = -1$. Not surprisingly this forms the machinery needed to perform many calculations of $\hat{d}$ and thus to assign potentials to each team.
+\[
+\mathbf{A} = \begin{bmatrix}
+	a_{g_1t_1} & a_{g_1t_2} & \cdots & a_{g_1t_n}\\
+	a_{g_2t_1} & a_{g_2t_2} & \cdots & a_{g_2t_n}\\
+	\vdots & \vdots & \ddots & \vdots\\
+	a_{g_nt_1} & a_{g_nt_2} & \cdots & a_{g_nt_n}
+\end{bmatrix} 
+\]
+where each column represents one team in a given season and row represents a game played; since a game can only be played between two teams, each row contains exactly 2 non-zero elements. Further, for the two teams involved in some game $g_k$, we apply the convention that the `first' team $t_i$, that is the team whose column appears before the `second' team $t_j$ such that $i<j$, obtains the value $a_{t_ig_k} = -1$ for the element while $a_{t_jg_k} = -1$. Not surprisingly this forms the machinery needed to perform many calculations of $\hat{d}$ and thus to assign potentials to each team.
 
 But to do this, we need to solve a system involving the actual scores for games within some tournament within the data. Let $\mathbf{s}$ be the vector of differences between all final scores of each game in the tournament. Then to determine the potentials for each team, is a matter of solving the system 
 \[\mathbf{A}\mathbf{x} = \mathbf{s} \]
 As a simple example with 4 teams and 3 games (we assume that teams 1 and 3 are carried forth onto the second round), we have:
 \[
 \begin{bmatrix}
-  1&-1&0&0\\
-  0&0&1&-1\\
-  1&0&-1&0
+	1&-1&0&0\\
+	0&0&1&-1\\
+	1&0&-1&0
 \end{bmatrix}\begin{bmatrix}
-  x_1\\x_2\\x_3\\x_4
+	x_1\\x_2\\x_3\\x_4
 \end{bmatrix} = \begin{bmatrix}
-  32\\20\\-2
+	32\\20\\-2
 \end{bmatrix}
 \]
 In this case, solving for $\mathbf{x}$ would return the potentials for each of the 4 teams.
 \subsubsection{Testing the Prediction Accuracy}
 As mentioned in Section~\ref{sec:objective}. The accuracy of a model is tested as follows: 
 \begin{equation}
-    \mbox{tested accuracy} = \frac{\mbox{number of correct predictions}}{\mbox{number of all predictions}}
+		\mbox{tested accuracy} = \frac{\mbox{number of correct predictions}}{\mbox{number of all predictions}}
 \end{equation}
 The accuracy is tested on past years' tournament results, 18 years worth, after training the model on the same year's regular season results.  As there are 66 games in each tournament, resulting our test data to contain more than 1000 games to predict.
 
 
 \subsection{Confidence Interval Analysis}
-To construct the confidence interval for the tested accuracy, we assume the following for convenience sake:
+To construct the confidence interval for the tested accuracy, we assume the following for the sake of convenience:
 \begin{equation}
-    Y_i \sim Bernouli(\pi)\;(i.i.d)
+		Y_i \sim Bernouli(\pi)\qquad(\iid)
 \end{equation}
 where:
+% \begin{equation}
+% 		\begin{split}
+% 				Y_i = 1 \mbox{ if the prediction for game i is correct} \\
+% 				Y_i = 0 \mbox{ if the prediction for game i is incorrect}
+% 		\end{split}
+% \end{equation}
+
 \begin{equation}
-    \begin{split}
-        Y_i = 1 \mbox{ if the prediction for game i is correct} \\
-        Y_i = 0 \mbox{ if the prediction for game i is incorrect}
-    \end{split}
+	Y_i = \left\{\begin{matrix}
+		1&\text{ if the prediction for game i is correct} \\
+		0&\text{ if the prediction for game i is incorrect}
+	\end{matrix}\right.
 \end{equation}
 
-Under this assumption, the calculated accuracy ($\bar{Y}$ = mean of $Y_i$'s) is approximately normally distributed when the sample size is large by Central Limit Theorem.
+Let $\bar{Y}$ denote the mean of all $Y_i$ and under this assumption, the calculated accuracy is approximately normally distributed when the sample size is large by the Central Limit Theorem.
 \begin{equation}
-    \bar{Y} \sim N(E(Y_i), Var(Y_i)/n) = N(\pi, \pi(1-\pi)/n)
+		\bar{Y} \sim \norm\left(\E(Y_i), \frac{\Var(Y_i)}{n}\right) = \norm\left(\pi, \frac{\pi(1-\pi)}{n}\right)
 \end{equation}
 
 $\pi$ is unknown, but the lower bound for $Var(\bar{Y})$ = $\pi(1-\pi)/n$ can be found as it is maximized when $\pi$ = 0.5.
 
 \begin{equation}
-    Var(\bar{Y}) = \pi(1-\pi)/n <= 0.5(1-0.5)/n = 1/4n
+		\Var(\bar{Y}) = \frac{\pi(1-\pi)}{n} \leq \frac{0.5(1-0.5)}{n} = \frac{1}{4n}
 \end{equation}
 
-We used this value to construct oru 99\% confidence interval.
+We used this value to construct our 99\% confidence interval.
 
 \begin{equation}
-    CI(\bar{Y}) = CI(\hat{\pi}) = \hat{\pi} +- z_{0.995} *  \frac{1}{2\sqrt{n}}
+		CI(\bar{Y}) = CI(\hat{\pi}) = \hat{\pi} \pm \Z_{0.995} *  \frac{1}{2\sqrt{n}}
 \end{equation}
 
 It turned out, with our sample size (roughly 1200), we have:
 \begin{equation}
-    \mbox{one-sided length of confidence interval} = z_{0.995} *  \frac{1}{2\sqrt{n}} \leq 0.04
+		\mbox{one-sided width of confidence interval} = \Z_{0.995} *  \frac{1}{2\sqrt{n}} \leq 0.04
 \end{equation}
 Note that this does not depend on $\pi$ or $\hat{\pi}$ any more.  We chose to test our model on the past tournament results partly because we were able to obtain narrow enough confidence interval this way.
 
-
-
-\newcommand\iid{i.i.d.}
-\newcommand\pN{\mathcal{N}}
-
-
-
 \subsection{Use of $\ell_2$-Regularization}\label{sec:l2}
-
+We noted (with reference to Table~\ref{table:std})) that there were anomalous results with the `vanilla' least squares solution. This is likely attributed to numerical instability. Regardless, we applied regularization using an $\ell_2$-norm and thus the original minimization problem now appears as:
+\[
+	\min\sum_{d\in\text{games}}\left(d_{ij}-\hat{d}_{ij} \right)^2 + \|\lambda\|_2^2
+\]
 \section{Results}
 \subsection{Predictive Accuracy}
 We achieved roughly $70(\pm4)\%$ accuracy for predicting the past 18 tournaments' outcome (for win/lose prediction).  This is an out-of-sample result as we trained our model on the same seaosn's regular game results, which preceed the tournament.
@@ -163,39 +172,42 @@ We noticed that differences between our potential estimates are sometimes unusua
 
 \begin{table}
 \begin{center}
-  \begin{tabular}{ | l | c | r | }
-    \hline
-    Regularization parameter & Average standard deviation of potential estimates \\ \hline
-    0 (no regularization) & 1.351e+15 \\ \hline
-    $10^{-12}$ & 5.758\\ \hline
-    $10^{-9}$ & 5.758\\ \hline
-    $0.001$ & 5.757\\
-    \hline
-  \end{tabular}
-  \caption{Average standard deviation of potential estimates}
-  \label{table:std}
+	\begin{tabular}{ | l | c | r | }
+		\hline
+		Regularization parameter & Average standard deviation of potential estimates \\ \hline
+		0 (no regularization) & 1.351e+15 \\ \hline
+		$10^{-12}$ & 5.758\\ \hline
+		$10^{-9}$ & 5.758\\ \hline
+		$0.001$ & 5.757\\
+		\hline
+	\end{tabular}
+	\caption{Average standard deviation of potential estimates}
+	\label{table:std}
 \end{center}
 \end{table}
 
 As the potential differences are used as the predicted score difference of a game, this is clearly an irregular result.  Also, as we examined the plot of predicted score differences against actual scores, we realized that the predictions can be unstable particularly when the actual score differences are small (when the games are ``close''). 
 
 \begin{figure}[ht!]
-    \centering
-    \includegraphics[width=140mm]{actual_vs_predict.png}
-    \caption{Predicted score differences against actual score differences}
-    \label{actual_vs_predict}
+		\centering
+		\includegraphics[width=140mm]{actual_vs_predict.png}
+		\caption{Predicted score differences against actual score differences}
+		\label{actual_vs_predict}
 \end{figure}
 
 To prevent these unusual behaviors and also to stabilize the predictions, we utilized $\ell_2$-regularization.  The model is described in Section~\ref{sec:l2}: $\ell_2$-Regularization.  As expected, this model yielded more stable predictions as shown in Figure~\ref{actual_vs_predict}.  This was also clear when we compared the correlation coefficients between actual score differences and predicted score differences (it improved from 0.456 to 0.468.  However, it did not change the predictive accuracy significantly.
 
 Interestingly, ranging the regularization parameter from $10^{-9}$ to $0.001$ hardly changed the results as can be seen from Figure~\ref{actual_vs_predict}.
 
-
+\newpage
 \section{Conclusion}
 \subsection{Summary}
+We were fairly successful in using a large data set of past NCAA Basketball games to predict the outcome of future games. Leveraging the many tools in the landscape of numerical systems solvers, we easily apply our estimator to the large data and produce a respectable 70\% accuracy and show confidence interval analysis to show that this accuracy is not likely to diverge far from this estimate. We later apply a regularization term to combat numerical instabilaty and in doing so, we also minimize prediction variance. This effect is especially pronounced as the actual difference in final scores recorded in the data tends to zero suggesting difficulty in ascertaining the strength of one team over another. 
+
 \subsection{Further Considerations}
+As future work, we would like to consider applying \emph{maximum likelihood} theory to the traditional least squares solution. This framework would provide many analytic properties to back the numerics including more rigorous analysis of variance. Further, we can use the theory to reformulate our solution as a maximum likelihood estimator and thereby granting the ability to do higher level tuning amenable to probabilistic models such as model selection using well known heuristics such as the Akaike information criterion (AIC) or the Bayesian information criterion (BIC). It is unclear whether a dramatic increase in accuracy will be met by such adjustments in the apparatus, however, if only to ensure a robust model is found is reason enough to attempt the changes.
 
-
+Beyond that, we would like to consider a new interpretation of the data in the class of a time series. Whereas in the work described in this paper considered the team potentials as constants, the notion that there exists the possibility of growth or change in general that would be apparent in the form of change in strategy, injuries, teams peaking or reaching optimal performace later in the season and other manifestations. We feel this interpretation would lead to better accuracy as we can model the team potential more faithfully throughout the season and apply this dimension to predicting the outcomes of present tournaments.
 
 % 1. Introduction
 % 1.1. Background information (description of data)
